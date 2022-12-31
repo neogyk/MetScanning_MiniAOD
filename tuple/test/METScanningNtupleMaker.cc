@@ -107,17 +107,17 @@ void METScanningNtupleMaker::beginJob(){
   tree->Branch("muon_eta", muon_eta, "muon_eta[muon_count]/F");
   tree->Branch("muon_phi", muon_phi, "muon_phi[muon_count]/F");
   tree->Branch("muon_pterror", muon_pterror, "muon_pterror[muon_count]/F");
-  //tree->Branch("muon_segmentComp", muon_segmentComp, "muon_segmentComp[muon_count]/F");
-  //tree->Branch("muon_isPF",muon_isPF,"muon_isPF[muon_count]/O");
-  //tree->Branch("muon_isGlobal",muon_isGlobal,"muon_isGlobal[muon_count]/O");
+  tree->Branch("muon_segmentComp", muon_segmentComp, "muon_segmentComp[muon_count]/F");
+  tree->Branch("muon_isPF",muon_isPF,"muon_isPF[muon_count]/O");
+  tree->Branch("muon_isGlobal",muon_isGlobal,"muon_isGlobal[muon_count]/O");
   tree->Branch("muon_isTracker",muon_isTracker,"muon_isTracker[muon_count]/O");
-  //tree->Branch("muon_isTight",muon_isTight,"muon_isTight[muon_count]/O");
-  //tree->Branch("muon_isLoose",muon_isLoose,"muon_isLoose[muon_count]/O");
-  //tree->Branch("muon_isMedium",muon_isMedium,"muon_isMedium[muon_count]/O");
-  //tree->Branch("muon_isICHEP",muon_isICHEP,"muon_isICHEP[muon_count]/O");
-  //tree->Branch("muon_genmatch", muon_genmatch, "muon_genmatch[muon_count]/I");
-  //tree->Branch("muon_isDuplicate",muon_isDuplicate,"muon_isDuplicate[muon_count]/O");
-  //tree->Branch("muon_isBad",muon_isBad,"muon_isBad[muon_count]/O");
+  tree->Branch("muon_isTight",muon_isTight,"muon_isTight[muon_count]/O");
+  tree->Branch("muon_isLoose",muon_isLoose,"muon_isLoose[muon_count]/O");
+  tree->Branch("muon_isMedium",muon_isMedium,"muon_isMedium[muon_count]/O");
+  tree->Branch("muon_isICHEP",muon_isICHEP,"muon_isICHEP[muon_count]/O");
+  tree->Branch("muon_genmatch", muon_genmatch, "muon_genmatch[muon_count]/I");
+  tree->Branch("muon_isDuplicate",muon_isDuplicate,"muon_isDuplicate[muon_count]/O");
+  tree->Branch("muon_isBad",muon_isBad,"muon_isBad[muon_count]/O");
 
   //N Vertex:
   tree->Branch("primvertex_count", &primvertex_count, "primvertex_count/i");
@@ -235,11 +235,11 @@ unsigned int METScanningNtupleMaker::AddMuons(const edm::Event& iEvent, const ed
 
         muon_isTracker[muon_count] = (*Muons)[i].isTrackerMuon();
         muon_isPF[muon_count] = (*Muons)[i].isPFMuon();
-        //muon_isTight[muon_count] = (*Muons)[i].isTightMuon(primvertex);
-        //muon_isLoose[muon_count] = (*Muons)[i].isLooseMuon();
-        //muon_isGlobal[muon_count] = (*Muons)[i].isGlobalMuon();
-        //muon_isMedium[muon_count] = (*Muons)[i].isMediumMuon();
-        //muon_isICHEP[muon_count] = idAlgos::isICHEPMuon((*Muons)[i]);
+        muon_isTight[muon_count] = (*Muons)[i].isTightMuon(primvertex);
+        muon_isLoose[muon_count] = (*Muons)[i].isLooseMuon();
+        muon_isGlobal[muon_count] = (*Muons)[i].isGlobalMuon();
+        muon_isMedium[muon_count] = (*Muons)[i].isMediumMuon();
+        muon_isICHEP[muon_count] = idAlgos::isICHEPMuon((*Muons)[i]);
 
         muon_chargedHadIso[muon_count] = (*Muons)[i].chargedHadronIso();
         muon_neutralHadIso[muon_count] = (*Muons)[i].neutralHadronIso();
