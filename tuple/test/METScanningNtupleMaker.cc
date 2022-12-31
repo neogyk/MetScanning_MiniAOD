@@ -70,9 +70,9 @@ void METScanningNtupleMaker::beginJob(){
   tree->Branch("flags", "std::map<std::string, int>", &flags_);
 
 
-  //MET Tokens:
-	//PF MET
-  tree->Branch("pfmet_ex", &pfmet_ex, "pfmet_ex/F");
+    //MET Tokens:
+    //PF MET
+    tree->Branch("pfmet_ex", &pfmet_ex, "pfmet_ex/F");
     tree->Branch("pfmet_ey", &pfmet_ey, "pfmet_ey/F");
     tree->Branch("pfmet_ez", &pfmet_ey, "pfmet_ez/F");
     tree->Branch("pfmet_pt", &pfmet_pt, "pfmet_pt/F");
@@ -229,7 +229,7 @@ unsigned int METScanningNtupleMaker::AddMuons(const edm::Event& iEvent, const ed
             muon_normChi2[muon_count] = -1;
           }
 
-        //	std::cout << "  chi2 = " << muon_chi2[muon_count] << "  ndof = " << muon_ndof[muon_count] << std::endl;
+        //std::cout << "  chi2 = " << muon_chi2[muon_count] << "  ndof = " << muon_ndof[muon_count] << std::endl;
 
         muon_nMuonStations[muon_count] = (*Muons)[i].numberOfMatchedStations();
 
@@ -404,9 +404,9 @@ void METScanningNtupleMaker::analyze(const Event& iEvent,
 
   }
 
-   //PF MET
-  //if(crecpfmet==true)
- // {
+      //PF MET
+      //if(crecpfmet==true)
+      // {
       edm::Handle<pat::METCollection> patMet;
       iEvent.getByToken(MetCollectionToken_, patMet);
 
