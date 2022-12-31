@@ -10,7 +10,7 @@ For recent instruction please visit: https://twiki.cern.ch/twiki/bin/view/CMS/Mi
   mv MetScanning_MiniAOD MetScanning
   cd MetScanning
   scram b -j9
-  ```
+```
   You might need to run the following command if you want to access files via XROOT:
 ```
   voms-proxy-init --voms cms
@@ -20,10 +20,11 @@ For recent instruction please visit: https://twiki.cern.ch/twiki/bin/view/CMS/Mi
   cmsRun MetScanning/skim/python/skimMINIAOD.py
 ```
 
-```
+
 ## Run with crab
 In ``MetScanning/skim/crab/`` edit crab.py and adjust samples, JSON, and the EOS directory. 
 Then do:
+
 ```
   cd MetScanning/skim/crab/
   python crab.py
